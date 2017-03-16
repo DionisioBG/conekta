@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Error en runtime</title>
+        <meta name="viewport" content="width=device-width" />
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Consolas","Lucida Console",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }
+         @media screen and (max-width: 639px) {
+          pre { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word; }
+         }
+         @media screen and (max-width: 479px) {
+          pre { width: 280px; }
+         }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><H1>Error de servidor en la aplicación '/estimacionesD'.<hr width=100% size=1 color=silver></H1>
+
+            <h2> <i>Error en runtime</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> Descripción: </b>Error de aplicación en el servidor. La configuración actual de errores personalizados de esta aplicación evita que se muestren los detalles del error de la aplicación de manera remota (por razones de seguridad). Sin embargo, se pueden ver los detalles en los exploradores que se ejecuten localmente en el servidor.
+            <br><br>
+
+            <b>Detalles:</b> Para habilitar los detalles de este mensaje de error espec&#237;fico de forma que sean visibles en equipos remotos, cree una etiqueta &lt;customErrors&gt; en el archivo de configuraci&#243;n &quot;web.config&quot; ubicado en el directorio ra&#237;z de la aplicaci&#243;n Web actual. La etiqueta &lt;customErrors&gt; debe tener el atributo &quot;mode&quot; establecido como &quot;Off&quot;.<br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+&lt;!-- Web.Config Configuration File --&gt;
+
+&lt;configuration&gt;
+    &lt;system.web&gt;
+        &lt;customErrors mode=&quot;Off&quot;/&gt;
+    &lt;/system.web&gt;
+&lt;/configuration&gt;</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <b>Notas:</b> La p&#225;gina de errores que est&#225; viendo actualmente se puede reemplazar por una p&#225;gina de errores personalizada si se modifica el atributo &quot;defaultRedirect&quot; de la etiqueta de configuraci&#243;n &lt;customErrors&gt; de la aplicaci&#243;n para que se&#241;ale una direcci&#243;n URL de p&#225;ginas de errores personalizadas.<br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+&lt;!-- Web.Config Configuration File --&gt;
+
+&lt;configuration&gt;
+    &lt;system.web&gt;
+        &lt;customErrors mode=&quot;RemoteOnly&quot; defaultRedirect=&quot;mycustompage.htm&quot;/&gt;
+    &lt;/system.web&gt;
+&lt;/configuration&gt;</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+    </body>
+</html>

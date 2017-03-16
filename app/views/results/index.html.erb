@@ -1,0 +1,12 @@
+<div class="row center-xs">
+		<h2 class="titulos"><%= current_user.email%> estos son tus programas:</h2>
+</div>
+
+<div class="scrollR">
+	<% @results.each do |result| %>
+	<div class="programas">
+	<%= link_to "Programa con objetivo:", result, class:"link" %><%= result.objetivo%> ------------------------------------------- 
+	<%= link_to "Eliminar", result, method: :delete, class:"linkEliminar" %>
+	</div>
+	<%end%>		
+</div>

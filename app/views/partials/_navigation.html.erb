@@ -1,0 +1,198 @@
+<div class="logoWinfitt">
+<%= link_to root_path do %>
+<img style="width:300px;" src="<%= asset_path 'anuncios/super logo.png' %>">
+<% end %>	
+</div>
+
+<style type="text/css">
+
+header{
+display: g;
+}
+
+.burguerMenu{
+display:none;
+}
+
+.logoWinfitt{
+position: absolute;
+left: 10px;
+}
+
+.logoWinfittMovil{
+display: none;
+}
+
+ul{
+list-style: none;
+}
+
+.fondo{
+background-color: rgba(255, 255, 255, 0.7);
+width:100%;
+padding: 10px 10px;
+}
+
+.nav{
+padding: 0;
+margin:4px;
+font-style: none;
+color: #0C0B0C;
+}
+
+.pieDePagina{
+right: 0;
+bottom: 0;
+left: 0;
+padding: 4px;
+text-align: center;
+float:left; 
+width:20%;
+height: 10%;
+position:fixed;
+}
+
+.facebook{
+float: left;
+width: 60px;
+margin: 2px;
+display: inline-block;
+}
+
+.botonPaypal{
+position: absolute;
+right: 20px;
+}
+
+		@media (max-width: 500px){
+		.burguerMenu{
+		position: fixed;
+		z-index: 2;
+		width: 45px;
+		right: 15px;
+		top: 15px;
+		display: inline-block;
+		}
+
+
+		header{
+		position: relative;
+		z-index: 1; display: none;
+		}
+
+		.logoWinfitt{
+		display: none;
+		}
+
+		.logoWinfittMovil{
+		display: initial;
+		}
+
+		ul{
+		list-style: none;
+		}
+
+
+		.fondo{
+		background-color: rgba(255, 255, 255, 0.8);
+		width:100%;
+		height: 100%;
+		position: fixed;
+
+		}
+
+		.nav{
+		display: list-item;
+		margin:0px;
+		font-style: none;
+		color: #0C0B0C;
+		}
+
+		.col-md{
+			font-weight: bold;
+		font-size: 18px;
+		padding: 40px 40px;
+		}
+
+		.pieDePagina{
+		bottom: 0;
+		padding: 4px;
+		text-align: center;
+		float:left; 
+		width:100%;
+		height: 10%;
+		position:fixed;
+		}
+
+		.facebook{
+		bottom: 5px;
+		float: left;
+		width: 40px;
+		margin: 2px;
+		display: inline-block;
+		}
+
+		.botonPaypal{
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		}
+		}
+
+</style>
+<img src="<%= asset_path 'imagenes/burguerMenu.png' %>" class="burguerMenu">
+<header id="burguerMenu">
+<nav class="fondo">
+<ul class="no-list row center-xs middle-xs nav">
+								<li class="col-md nav title">
+
+								</li>
+
+<% if user_signed_in? %>
+		<li class="col-md">
+		<%= link_to "Antes de comprar", extra_index_path, class:"link" %>
+		</li>					
+		<li class="col-md">
+		<%= link_to "Ver mis programas", results_path, class:"link" %>
+		</li>
+		<li class="col-md">
+		<%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class:"link" %>
+		</li>
+				<li class="col-md">
+				</li>
+
+<%= link_to new_result_path do %>
+<img class="botonPaypal" src="<%= asset_path 'slideimg/comprar.png' %>">
+<%end%>
+
+<%else%>
+	<li class="col-md">
+	<%= link_to "Obten tu programa", new_user_session_path, class:"link" %>
+	</li>
+	<li class="col-md">
+	<%= link_to "Iniciar sesión", new_user_session_path, class:"link" %>
+	</li>
+	<li class="col-md">
+	<%= link_to "Crear cuenta", new_user_registration_path, class:"link" %>
+	</li>	
+<%end%>
+</ul>
+</nav>
+</header>
+
+<div class="logoWinfittMovil">
+<%= link_to root_path do %>
+<img style="width:300px;" src="<%= asset_path 'anuncios/super logo.png' %>">
+<% end %>	
+</div>
+
+<footer class="pieDePagina">
+<img class="facebook" src="<%= asset_path 'anuncios/hecho en mexico.png' %>">
+<a href="https://www.facebook.com/WinfittSoftware/" target="blank"><img class="facebook" src="<%= asset_path 'anuncios/anunciate.png' %>"></a>
+</footer>
+
+<script type="text/javascript">
+	    $(".burguerMenu").click(function(){
+        $("#burguerMenu").toggle(1000);
+    });
+</script>

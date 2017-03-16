@@ -1,0 +1,59 @@
+<div class="resultNav">
+	<input type="button" value="Antes de comprar" class="botonR antes">
+	<input type="button" value="¿Cuanto peso cargar?" class="botonR 1rm">
+	<input type="button" value="Frecuencia cardiaca" class="botonR fcm">
+	<input type="button" value="Grasa corporal" class="botonR grasacorp">
+</div>
+	
+	<div class="scrollR">
+		<div style="display:none;" id="antes">
+		<%=render "antes"%>
+		</div>
+		<div style="display:none;" id="1rm">
+		<%=render "unorm"%>
+		</div>
+		<div style="display:none;" id="fcm">
+		<%=render "fcm"%>
+		</div>
+		<div style="display:none;" id="grasacorp">
+		<%=render "grasa"%>
+		</div>	
+	</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+    $(".antes").click(function(){
+        $("#antes").toggle(1500);
+        $("#1rm").hide();
+        $("#fcm").hide();
+        $("#grasacorp").hide();
+    });
+});
+
+		$(document).ready(function(){
+    $(".1rm").click(function(){
+        $("#1rm").toggle(1500);
+        $("#antes").hide();
+        $("#fcm").hide();
+        $("#grasacorp").hide();
+    });
+});
+
+			$(document).ready(function(){
+    $(".fcm").click(function(){
+        $("#fcm").toggle(1500);
+        $("#1rm").hide();
+        $("#antes").hide();
+        $("#grasacorp").hide();
+    });
+});
+
+				$(document).ready(function(){
+    $(".grasacorp").click(function(){
+        $("#grasacorp").toggle(1500);
+        $("#1rm").hide();
+        $("#fcm").hide();
+        $("#antes").hide();
+    });
+});
+</script>

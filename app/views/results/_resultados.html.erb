@@ -1,0 +1,109 @@
+<div class="resultNav">
+<input type="button" value="Macrociclo" class="btnM botonR">
+<input type="button" value="Entrenamiento" class="btnE botonR">
+<input type="button" value="Complementos" class="btnS botonR">
+<input type="button" value="Cardiovascular" class="btnC botonR">
+<input type="button" value="Alimentación" class="btnA botonR">
+<input type="button" value="Bitacora" class="btnB botonR">       
+</div>
+
+<div class="scrollR">
+<div class="resultados" id="receptor1">
+<%= render "mform" %>
+</div>
+
+<div class="resultados" id="receptor2">
+<%= render "eform" %>   
+</div>
+
+<div class="resultados" id="receptor3">
+<%= render "sform" %>
+</div>
+
+<div class="resultados" id="receptor4">
+<%= render "cform" %>
+</div>
+
+<div class="resultados" id="receptor5">
+<%= render "aform" %>
+</div>
+
+<div class="resultadosB" id="receptor6">
+<%= render "bitacora" %>
+</div>    
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".btnM").click(function(){
+        $("#receptor1").toggle(1500);
+        $("#receptor2").hide();
+        $("#receptor3").hide();
+        $("#receptor4").hide();
+        $("#receptor5").hide();
+        $("#receptor6").hide();        
+    });
+});
+
+
+$(document).ready(function(){
+    $(".btnE").click(function(){
+        $("#receptor2").toggle(1500);
+        $("#receptor1").hide();
+        $("#receptor3").hide();
+        $("#receptor4").hide();
+        $("#receptor5").hide();
+        $("#receptor6").hide();  
+    });
+});
+
+$(document).ready(function(){
+        /*PARA TRAER EL RESULTADO DE CARDIOVASCULAR*/
+        $(".btnS").click(function(){
+        $("#receptor3").toggle(1500);
+        $("#receptor1").hide();
+        $("#receptor2").hide();
+        $("#receptor4").hide();
+        $("#receptor5").hide();
+        $("#receptor6").hide();  
+    });
+});
+
+$(document).ready(function(){
+        /*PARA TRAER EL RESULTADO DE CARDIOVASCULAR*/
+        $(".btnC").click(function(){
+        $("#receptor4").toggle(1500);
+        $("#receptor1").hide();
+        $("#receptor2").hide();
+        $("#receptor3").hide();
+        $("#receptor5").hide();
+        $("#receptor6").hide();  
+    });
+});
+
+$(document).ready(function(){
+        /*PARA TRAER EL RESULTADO DE ALIMENTACION*/
+        $(".btnA").click(function(){
+        $("#receptor5").toggle(1500);
+        $("#receptor1").hide();
+        $("#receptor2").hide();
+        $("#receptor3").hide();
+        $("#receptor4").hide();
+        $("#receptor6").hide();  
+    });
+});
+
+$(document).ready(function(){
+    /*PARA TRAER EL RESULTADO DE ENTRENAMIENTO*/
+        $(".btnB").click(function(){
+        $("#receptor6").toggle(1500);
+        $("#receptor1").hide();
+        $("#receptor2").hide();
+        $("#receptor3").hide();
+        $("#receptor4").hide();
+        $("#receptor5").hide();  
+    });
+});    
+</script>
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
