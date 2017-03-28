@@ -2,220 +2,30 @@
 <h2>Aquí comienza el primer paso para alcanzar tu meta</h2>  
 </div>
 
-    <div class="resultForm">
-
-    <h1>AQUÍ ME GUSTARIA INCLUIR LA PASARELA DE PAGO</h1>
-
-        <% @result.errors.full_messages.each do |message| %>
-        *<%= message %>
-        <%end%> 
-
-<%= form_for @result do |m| %>
-
-<h2>Selecciona tu sexo:</h2>  
-<%= m.radio_button :sexo, 1, :class => "rubyFields"%> 
-<%= m.label(:sexo, "masculino") %>
-<%= m.radio_button :sexo, 2, :class => "rubyFields"%>
-<%= m.label(:sexo, "femenino") %>
-
-<img class="rubyFields grasas" src="<%= asset_path 'menus/grasahombres.png' %>">
-<h2>Selecciona tu porcentaje de grasa:</h2>
-<%= m.radio_button(:grasa, 90, :class => "rubyFields")%>
-<%= m.label(:grasa, "31-29")%>
-<%= m.radio_button(:grasa, 80, :class => "rubyFields")%>
-<%= m.label(:grasa, "28-26")%>
-<%= m.radio_button(:grasa, 70, :class => "rubyFields")%>
-<%= m.label(:grasa, "26-24")%>
-<%= m.radio_button(:grasa, 60, :class => "rubyFields")%>
-<%= m.label(:grasa, "23-21")%>
-<%= m.radio_button(:grasa, 50, :class => "rubyFields")%>
-<%= m.label(:grasa, "20-18")%>
-<%= m.radio_button(:grasa, 40, :class => "rubyFields")%>
-<%= m.label(:grasa, "17-15")%>
-<%= m.radio_button(:grasa, 30, :class => "rubyFields")%>
-<%= m.label(:grasa, "14-12")%>
-<%= m.radio_button(:grasa, 20, :class => "rubyFields")%>
-<%= m.label(:grasa, "11-9")%>   
-<%= m.radio_button(:grasa, 10, :class => "rubyFields")%>        
-<%= m.label(:grasa, "8-6")%>
-
-<img class="rubyFields grasas" src="<%= asset_path 'menus/grasamujeres.png' %>">
-<h2>Selecciona tu porcentaje de grasa:</h2>
-<%= m.radio_button(:grasa, 9, :class => "rubyFields")%>
-<%= m.label(:grasa, "42-40")%>
-<%= m.radio_button(:grasa, 8, :class => "rubyFields")%>
-<%= m.label(:grasa, "39-37")%>
-<%= m.radio_button(:grasa, 7, :class => "rubyFields")%>
-<%= m.label(:grasa, "36-34")%>
-<%= m.radio_button(:grasa, 6, :class => "rubyFields")%>
-<%= m.label(:grasa, "33-31")%>
-<%= m.radio_button(:grasa, 5, :class => "rubyFields")%>
-<%= m.label(:grasa, "30-28")%>
-<%= m.radio_button(:grasa, 4, :class => "rubyFields")%>
-<%= m.label(:grasa, "27-25")%>
-<%= m.radio_button(:grasa, 3, :class => "rubyFields")%>
-<%= m.label(:grasa, "24-22")%>
-<%= m.radio_button(:grasa, 2, :class => "rubyFields")%>
-<%= m.label(:grasa, "21-19")%>  
-<%= m.radio_button(:grasa, 1, :class => "rubyFields")%>     
-<%= m.label(:grasa, "18-16")%> 
-
-<h2>Meses que llevas entrenando</h2>
-<%= m.radio_button(:meses, 1, :class => "rubyFields") %>
-<%= m.label(:meses, "principiante(De 0 a 15 días)") %>
-<%= m.radio_button(:meses, 2, :class => "rubyFields") %>
-<%= m.label(:meses, "intermedio(De 3 a 12 meses)") %>
-<%= m.radio_button(:meses, 3, :class => "rubyFields") %>
-<%= m.label(:meses, "avanzado(De 12 meses en adelante)") %>
-
-<h2>Objetivo, tipo de entrenamiento</h2>
-<%= m.radio_button(:objetivo, 1, :class => "rubyFields") %>
-<%= m.label(:objetivo, "Definición") %>
-<%= m.radio_button(:objetivo, 2, :class => "rubyFields") %>
-<%= m.label(:objetivo, "Ganancia Muscular") %>
-<%= m.radio_button(:objetivo, 3, :class => "rubyFields") %>
-<%= m.label(:objetivo, "Resistencia") %>
-<%= m.radio_button(:objetivo, 4, :class => "rubyFields") %>
-<%= m.label(:objetivo, "Fuerza Máxima") %>
-
-<h2>Selecciona el nivel de entrenamiento para ser mas especificos:</h2>
-
-<%= m.radio_button(:nivel, 1, :class => "rubyFields")%>
-<%= m.label(:nivel, "1(nunca he entrenado)")%>
-<%= m.radio_button(:nivel, 2, :class => "rubyFields")%>
-<%= m.label(:nivel, "2(tengo mas de medio año sin entrenar)")%>
-<%= m.radio_button(:nivel, 3, :class => "rubyFields")%>
-<%= m.label(:nivel, "3(tengo 15 días de entrenamiento)")%>
-<%= m.radio_button(:nivel, 4, :class => "rubyFields")%>
-<%= m.label(:nivel, "4(tengo 1 mes de entrenamiento)")%>
-<%= m.radio_button(:nivel, 5, :class => "rubyFields")%>
-<%= m.label(:nivel, "5(tengo 3 meses de entrenamiento)")%>
-<%= m.radio_button(:nivel, 6, :class => "rubyFields")%>
-<%= m.label(:nivel, "6(tengo 6 meses de entrenamiento)")%>
-
-<h1>Alimentación</h1>
-
-<h2>Selecciona el ritmo de entrenamiento en tu semana</h2>
-
-<%= m.radio_button(:ritmo, 1.2, :class => "rubyFields")%>
-<%= m.label(:ritmo, "Sedentario(solo entreno una vez por semana)")%>
-<%= m.radio_button(:ritmo, 1.375, :class => "rubyFields")%>
-<%= m.label(:ritmo, "Algo activo(entreno de 2 a 3 veces por semana)")%>
-<%= m.radio_button(:ritmo, 1.55, :class => "rubyFields")%>
-<%= m.label(:ritmo, "Activo(entreno 5 días a la semana)")%>
-<%= m.radio_button(:ritmo, 1.725, :class => "rubyFields")%>
-<%= m.label(:ritmo, "Muy activo(entreno todos los días de la semana)")%>
-<%= m.radio_button(:ritmo, 1.9, :class => "rubyFields")%>
-<%= m.label(:ritmo, "Extra activo(entreno todos los días de la semana, en ocaciones 2 veces al día)")%>
-
-<h2>Selecciona tu meta en este mes</h2>
-
-<%= m.radio_button(:meta, -500, :class => "rubyFields")%>
-<%= m.label(:meta, "Definición al limite(recomendado despues de pasar 3 periodos con winfitt)")%>
-<%= m.radio_button(:meta, -250, :class => "rubyFields")%>
-<%= m.label(:meta, "Definición moderado(ideal si vas a comenzar tu primera definicion)")%>
-<%= m.radio_button(:meta, 0, :class => "rubyFields")%>
-<%= m.label(:meta, "Mentenimiento(ideal si vas a comenzar)")%>
-<%= m.radio_button(:meta, 250, :class => "rubyFields")%>
-<%= m.label(:meta, "Ganancia muscular moderado(ideal si vas a comenzar tu primera fase de volumen)")%>
-<%= m.radio_button(:meta, 500, :class => "rubyFields")%>
-<%= m.label(:meta, "Ganancia muscular al limite(recomendado despues de pasar 3 periodos con winfitt)")%>
-
-<h2>Selecciona tu menú alimenticio en este mes</h2>
-
-<label><%= m.radio_button(:menu, 1, :class => "radiob")%>
-<img src="<%= asset_path 'menus/menu1.png'%>" class="menus">
-</label>
-
-<label><%= m.radio_button(:menu, 2, :class => "radiob")%> 
-<img src="<%= asset_path'menus/menu2.png'%>" class="menus">
-</label> 
-
-<label><%= m.radio_button(:menu, 3, :class => "radiob")%> 
-<img src="<%= asset_path'menus/menu3.png'%>" class="menus">
-</label> 
-
-<label><%= m.radio_button(:menu, 4, :class => "radiob")%> 
-<img src="<%= asset_path'menus/menu4.png'%>" class="menus">
-</label> 
-
-<label><%= m.radio_button(:menu, 5, :class => "radiob")%> 
-<img src="<%= asset_path'menus/menu5.png'%>" class="menus">
-</label> 
-
-<label><%= m.radio_button(:menu, 6, :class => "radiob")%> 
-<img src="<%= asset_path'menus/menu6.png'%>" class="menus">
-</label> 
-
-<label><%= m.radio_button(:menu, 7, :class => "radiob")%> 
-<img src="<%= asset_path'menus/menu7.png'%>" class="menus">
-</label> 
-
-<label><%= m.radio_button(:menu, 8, :class => "radiob")%> 
-<img src="<%= asset_path'menus/menu8.png'%>" class="menus">
-</label> 
-
-<label><%= m.radio_button(:menu, 9, :class => "radiob")%> 
-<img src="<%= asset_path'menus/menu9.png'%>" class="menus">
-</label> 
-
-<label><%= m.radio_button(:menu, 10, :class => "radiob")%> 
-<img src="<%= asset_path'menus/menu10.png'%>" class="menus">
-</label> 
-
-<label><%= m.radio_button(:menu, 11, :class => "radiob")%> 
-<img src="<%= asset_path'menus/menu11.png'%>" class="menus">
-</label> 
-
-<label><%= m.radio_button(:menu, 12, :class => "radiob")%> 
-<img src="<%= asset_path'menus/menu12.png'%>"  class="menus">
-</label> 
-
-
-<h2>Pon tu peso en kilos</h2>
-<%= m.number_field(:kilos, in: 30.00..150.00, :class => "rubyFields") %>
-<%= m.label("Peso en kilos")%>
-
-<h2>Pon tu grasa corporal</h2>
-
-<%= m.number_field(:egrasa, in: 8.00..45.00, :class => "rubyFields") %>
-<%= m.label("porcentaje de grasa")%>
-
-
-<h2>Pon tu edad</h2>
-
-<%= m.number_field(:edad, in: 18.0..100.0, :class => "rubyFields") %>
-<%= m.label(:edad, "Edad")%>
-
-
-<h2>Pon tu frecuencia cardiaca en reposo</h2>
-
-<%= m.number_field(:fmin, in: 10.0..200.0, :class => "rubyFields") %>
-<%= m.label(:fmin, "Frecuencia cardiaca en reposo")%>
-
-
-<h2>Estado en el que te encuentras en cuanto a condición fisica</h2>
-<%= m.radio_button :cestado, 1, :class => "rubyFields" %>
-<%= m.label(:cestado, "Principiante(tienes de 0 a 3 meses de entrenamiento)") %>
-<%= m.radio_button :cestado, 2, :class => "rubyFields" %>
-<%= m.label(:cestado, "Intermedio(tienes de 3 a 12 meses de entrenamiento)") %>
-<%= m.radio_button :cestado, 3, :class => "rubyFields" %>
-<%= m.label(:cestado, "Avanzado(tienes mas de 1 año entrenando constantemente)") %>
-
-<h2>Escoge un nivel</h2>
-<%= m.radio_button :cnivel, 1, :class => "rubyFields" %>
-<%= m.label(:cnivel, "Uno(nunca he entrenado)") %>
-<%= m.radio_button :cnivel, 2, :class => "rubyFields" %>
-<%= m.label(:cnivel, "Dos(tengo 15 días entrenando)") %>
-<%= m.radio_button :cnivel, 3, :class => "rubyFields" %>
-<%= m.label(:cnivel, "Tres(tengo 3 meses de entrenamiento)") %>
-<%= m.radio_button :cnivel, 4, :class => "rubyFields" %>
-<%= m.label(:cnivel, "Cuatro(tengo 6 meses de entrenamiento)") %>
-<%= m.radio_button :cnivel, 5, :class => "rubyFields" %>
-<%= m.label(:cnivel, "Cinco(ya he pasado por el nivel anterior)") %>
-<%= m.radio_button :cnivel, 6, :class => "rubyFields" %>
-<%= m.label(:cnivel, "Seis(ya he pasado por el nivel anterior)") %>
-
-<%= m.submit "Guardar Resultados", :class => "btnEnv rubyFieldsSubmit " %>
-<% end %>
+<div class="resultForm">
+  <% if @errors %>
+  	<% @errors.each do |error| %>
+    	<div class='card-errors'><%= error.message %></div>
+  	<% end %>
+  <% end %>
+  <%= form_tag("/results/charge", method: "post", id: "card-form") do %>
+    <div class="card-errors"></div>
+	<%= label_tag(:card_number, "Numero de tarjeta") %>
+	<%= text_field(:card, :number, 'data-conekta' => 'card[number]', 'autocomplete' => 'off') %>
+	<br />
+	<%= label_tag(:name, "Nombre del propietario de la tarjeta") %>
+	<%= text_field(:card,:name, :name => 'name', 'data-conekta' => 'card[name]', 'autocomplete' => 'off') %>
+	<br />
+	<%= label_tag(:exp_fecha, "Fecha de expiración (MM/AAAA)") %>
+	<%= text_field(:card,:exp_month, :name => 'exp_month', 'data-conekta' => 'card[exp_month]', 'size' => 2) %>
+	<%= text_field(:card,:exp_year, :name => 'exp_year', 'data-conekta' => 'card[exp_year]', 'size' => 4) %>
+	<br />
+	<%= label_tag(:cvc, "CVC de la tarjeta") %>
+	<%= text_field(:card, :cvc, 'data-conekta' => 'card[cvc]', 'autocomplete' => 'off', 'size' => 4) %>
+	<br />
+	<%= label_tag(:email, "Correo") %> <!-- param para el paso 3-->
+	<%= email_field_tag(:email) %>
+	<br />
+	<button>Comprar</button>
+ <% end %>
 </div>
