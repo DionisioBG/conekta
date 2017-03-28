@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 get 'extra/index'
+get 'results/charge'
+post 'results/charge'
 
   devise_for :users
 resources :results
