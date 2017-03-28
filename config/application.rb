@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'conekta'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -22,5 +23,21 @@ module Winfitt
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Conekta
+    # This change the Accept-Language Header to the locale specified
+    Conekta.locale = :es
+
+    # Or via an initializer in config/initializers/conekta.rb
+    Conekta.config do |c|
+      c.locale = :es
+      c.api_key = Rails.application.secrets.conekta_private
+      c.api_version = '2.0.0'
+    end
+    #Mode of production. False: Test mode
+    config.live_mode = false
+    # end conekta
+
+
   end
 end
