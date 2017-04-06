@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
 
 get 'extra/index'
-get 'results/charge'
-post 'results/charge'
 
   devise_for :users
-resources :results
+  resources :results
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
