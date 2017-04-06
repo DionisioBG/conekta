@@ -1,25 +1,28 @@
 class ResultsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :charge, only: [:create, :edit, :update]
 
   def index
-  @results = current_user.results.all
+    @results = current_user.results.all
   end
 
   def show
-  @result = current_user.results.find(params[:id])
+    @result = current_user.results.find(params[:id])
   end
 
   def new
-  @result = Result.new
+    @errors = []
+    @result = Result.new
   end
 
   def create
-  @result = current_user.results.new(results_params)
-      if  @result.save
+    @result = current_user.results.new(results_params)
+    if @result.save
+      #params[:idCharge] #save the id order in field
       redirect_to @result
-
-    else render :new
+    else
+      render :new
     end
   end
 
@@ -32,6 +35,7 @@ class ResultsController < ApplicationController
   def nil.+ other; other end
 
   def edit
+    @errors = []
   end
 
   def update
@@ -41,72 +45,73 @@ class ResultsController < ApplicationController
     else 
       render :edit
     end
-  end  
+  end
 
   def charge
+    # source https://developers.conekta.com/api#authentication
+    #if params[:idCharge]#edit registry
+    #  render :edit
+    #else if !params[:conektaTokenId]
+    #  render :new
+    #end
+    #Create the client after creating the charge
     @errors = []
     begin
-      if !params[:conektaTokenId]
-        render :template => "results/new"
-        return
-      end
-      # create client
-      @customer = Conekta::Customer.create({
-        :name => params[:name],
-        :email => params[:email],
-        :payment_sources => [{
-          :token_id => 'tok_test_visa_4242',
-          #:token_id => params[:conektaTokenId],
-          :type => "card"
-        }]
-      })
+      @result = current_user.results.new(results_params)
+      if @result.valid?
+        customer = Conekta::Customer.create({
+          :name => params[:name],
+          :email => params[:email],
+          :payment_sources => [{
+            :token_id => params[:conektaTokenId],
+            :type => "card"
+          }]
+        })
+    end
     rescue Conekta::ErrorList => error_list
       for error_detail in error_list.details do
-        @errors.push(error_detail)
-        #render :template => "results/new"
+        @errors.push(error_detail.message)
       end
     end
-    # create order
     begin
-      @order = Conekta::Order.create({
-        :currency => "MXN",
-        :customer_info => {
-          :customer_id => @customer.id
-        },
-        :livemode => Rails.application.config.live_mode,
-        #:amount => (2000 * 100), #Amount in cents
-        # :name => params[:name],
-        # :phone => params[:phone],
-        # :email => params[:email],
-        :payment_sources => [{
-          :token_id => 'tok_test_visa_4242',
-          #:token_id => params[:conektaTokenId],
-          :type => "card"
-        }],
-        #:created_at => Date.today.to_time.to_i,
-        #:updated_at => Date.today.to_time.to_i,
-        :line_items => [{
-          :name => "Box of Cohiba S1s 1",
-          :unit_price => (2000 * 100), #Amount in cents
-          :quantity => 1
-        }],
-        :charges => [{
-          :payment_method => {
-            :type => "default"
-          }
-        }]
-      })
+      #Create the charge
+      if customer
+        order = Conekta::Order.create({
+          :currency => "MXN",
+          :customer_info => {
+            :customer_id => customer.id
+          },
+          :payment_sources => [{
+            :token_id => params[:conektaTokenId],
+            :type => "card"
+          }],
+          :line_items => [{
+            :name => "Box of Cohiba S1s 1",
+            :unit_price => 200000,
+            :quantity => 1
+          }],
+          :charges => [{
+            :payment_method => {
+              :type => "default"
+            }
+          }]
+        })
+      end
     rescue Conekta::ErrorList => error_list
       for error_detail in error_list.details do
-        @errors.push(error_detail)
-        #render :template => "results/new"
+        @errors.push(error_detail.message)
       end
     end
-    #delete customer
+    #Delete the client after creating the charge
     begin
-        @customer.delete
+      if customer
+        customer.delete
+      end
     rescue 
       puts 'Customer was not created'
+    end
+    if @errors.count > 0 #An Error Occurs
+      render :new
     end
   end
 
@@ -165,5 +170,4 @@ class ResultsController < ApplicationController
   :c30e, :c30a, :c30g,
   )
   end
-
 end
