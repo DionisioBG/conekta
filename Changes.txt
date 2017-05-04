@@ -1,0 +1,6 @@
+Created: 4-05-2017
+Changes made by the Ing. Jose Puentes
+Mail: joseft40@gmail.com
+Description:
+The application was integrated with the payment gateway Conekta,
+the ruby gem was added and the method was developed to process the payment
